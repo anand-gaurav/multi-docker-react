@@ -1,7 +1,7 @@
 FROM node:alpine as builder
 WORKDIR '/usr/app/complexReact/client'
-COPY ./package.json ./
-RUN npm run install
+COPY package*.json ./
+RUN npm install
 COPY ./ ./
 RUN npm run build
 
