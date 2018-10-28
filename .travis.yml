@@ -20,3 +20,4 @@ after_success:
   - docker push gauravanand/multi-nginx
   - docker push gauravanand/multi-server
   - docker push gauravanand/multi-worker
+  # images build successfully
