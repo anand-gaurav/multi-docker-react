@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 
-before_install
+before_install:
   - docker build -t gauravanand/react-test -f ./client/Dockerfile.dev ./client
 
 script:
@@ -16,7 +16,7 @@ after_success:
   #Login into docker CLI
   - echo  "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push gauravanand/multi-client 
+  - docker push gauravanand/multi-client
   - docker push gauravanand/multi-nginx
   - docker push gauravanand/multi-server
   - docker push gauravanand/multi-worker
