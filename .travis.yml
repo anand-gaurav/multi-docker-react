@@ -21,3 +21,16 @@ after_success:
   - docker push gauravanand/multi-server
   - docker push gauravanand/multi-worker
   # images build successfully
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-docker-react
+  env: MultiDockerReact-env
+  bucket_name: elasticbeanstalk-us-east-1-033352597080
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
